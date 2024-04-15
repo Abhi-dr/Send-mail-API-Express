@@ -13,7 +13,7 @@ app.use(cors()); // Enable CORS
 app.post('/send-email', async (req, res) => {
   const { to, subject, text } = req.body;
   const recipients = Array.isArray(to) ? to : [to];
-
+  
   try {
     // Create transporter object using SMTP transport
     const transporter = nodemailer.createTransport({
@@ -29,7 +29,7 @@ app.post('/send-email', async (req, res) => {
         from: "khandelwalprinci1@gmail.com", // Sender email address
         to: email, // Recipient email address
         subject: subject,
-        text: text
+        text:text
       };
       return transporter.sendMail(mailOptions);
     });
